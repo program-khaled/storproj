@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for i in obj_bag %}
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ i.image.url }}" >
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.name }}</h5>
+                    <p class="card-text">{{ i.desc }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="" class="btn btn-sm btn-outline-secondary">View</a>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+                        </div>
+                        <small class="text-muted">${{ i.price }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% if user_has_access %}
+    <a href="{% url 'add_bag_view' %}" class="btn btn-primary">Add Bag</a>
+{% endif %}
+{% endblock %}

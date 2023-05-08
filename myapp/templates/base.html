@@ -1,0 +1,64 @@
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+  </head>
+  <style>
+    
+  </style>
+  <body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+
+      <div class="nav_logo">
+        <a href="{% url 'dash_view' %}">
+          <img src="{% static 'img/myblacklogo.png' %}" width="90" height="50" alt="">
+        </a>
+    </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item {% block active_home %}{% endblock %}">
+            <a class="nav-link" href="{% url 'dash_view' %}">الصفحة الرئيسية</a>
+          </li>
+          <li class="nav-item {% block active_clothes %}{% endblock %}">
+            <a class="nav-link" href="{% url 'clothes_view' %}">ملابس</a>
+          </li>
+          <li class="nav-item {% block active_shoe %}{% endblock %}">
+            <a class="nav-link" href="{% url 'shoe_view' %}">احذية</a>
+          </li>
+          <li class="nav-item {% block active_wristwatch %}{% endblock %}">
+            <a class="nav-link" href="{% url 'wristwatch_view' %}">ساعات</a>
+          </li>
+          <li class="nav-item {% block active_bag %}{% endblock %}">
+            <a class="nav-link" href="{% url 'bag_view' %}">محافظ و شنط</a>
+          </li>
+          <li class="nav-item {% block activ_sunglas %}{% endblock %}">
+            <a class="nav-link" href="{% url 'sunglas_view' %}">نظارات</a>
+          </li>
+          <li class="nav-item {% block activ_accessory %}{% endblock %}">
+            <a class="nav-link" href="{% url 'accessory_view' %}">اكسسوارات</a>
+          </li>
+          
+  
+          
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      {% block content %}
+      
+      {% endblock %}
+      
+    </div>
+    {% include 'footer.html' %}
+    </body>
+</html>

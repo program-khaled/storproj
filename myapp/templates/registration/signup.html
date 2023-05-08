@@ -1,0 +1,85 @@
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+<style>
+    body{
+        background-color:#f5f8fb;
+    }
+    .main{
+        background-image: url('/static/img/signin.svg');
+        background-repeat:no-repeat;
+        background-position:50% 30%
+    }
+    .salah{
+        width:45%;
+        margin :auto
+    }
+    /* Style the input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background-color: #f5f8fb;
+}
+
+/* Style the submit button */
+button[type=submit] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Add hover effect to the submit button */
+button[type=submit]:hover {
+    background-color: #0069d9;
+}
+
+/* Adjust the spacing between form elements */
+.form-outline {
+    margin-bottom: 24px;
+}
+</style>
+    <br>
+    <br>
+    {% if form.non_field_errors%}
+        <div class="alert alert-danger" role="alerts">
+        {%for error in form.non_field_errors%}
+            <p {%if forloop.last%} class="mb-0" {%endif%}>{{error}}</p>
+        {%endfor%}
+        </div>
+    {%endif%}
+    <div class="container main" data-background-lg="/static/img/signin.svg">
+        <section class="tab-pane fade show active salah card p-4">
+            <h1 class=" m-auto">Create an account</h1>
+            <br>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+                    {{field.label_tag}}
+                    <div class="form-outline mb-4">
+                        {% render_field field class="form-control is-invalid" %}
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback" >
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <br>
+                <button type="submit" class="btn btn-dark btn-block mb-4">
+                    SIGN IN
+                </button>
+                <br>
+                <div class=" text-muted text-center">
+                    Already have an account? <a href="{% url 'login' %}">Log in</a>
+                </div>
+            </form>
+        </section>  
+    </div>
+{% endblock %}

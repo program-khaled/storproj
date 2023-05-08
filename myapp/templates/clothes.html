@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .card {
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    .pagination {
+        margin-top: 30px;
+    }
+    
+    .page-item.active .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    
+    .page-link {
+        color: #007bff;
+    }
+    
+    .page-link:hover {
+        color: #0056b3;
+    }
+    </style>
+<div class="container">
+    <div class="row">
+        {% for i in obj_clothes %}
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ i.image.url }}" alt="{{ i.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.name }}</h5>
+                    <p class="card-text">{{ i.desc }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" 
+                            onclick="window.location.href='https://api.whatsapp.com/send?phone=+966597858322&text=أريد%20شراء%20{{ i.name }}%20بسعر%20 {{ i.price }}ر.س&lang=ar'">
+                      اشترِ الآن!
+                    </button>    
+                                        </div>
+                                        <small class="text-muted">{{ i.price }}ر.س</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if products.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+            {% endif %}
+            {% for i in products.paginator.page_range %}
+                {% if products.number == i %}
+                    <li class="page-item active"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if products.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% if user_has_access %}
+{% endif %}
+
+
+{% if user_has_access %}
+<a href="{% url 'add_clothes_view' %}" class="btn btn-primary">اضافة ملابس</a>
+{% elif user.is_authenticated %}
+    <p>You don't have permission to add .</p>
+{% else %}
+{% endif %}
+<p>Please <a href="{% url 'login' %}?next={{ request.path }}">login</a> to add .</p>
+{% endblock %}

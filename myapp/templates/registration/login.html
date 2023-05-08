@@ -1,0 +1,227 @@
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">{{ title }}</div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              {{ form.username.label_tag }}
+              {{ form.username }}
+            </div>
+            <div class="form-group">
+              {{ form.password.label_tag }}
+              {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+          <!-- <a href="{% url 'signup' %}" class="btn btn-secondary">Sign Up</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+/* Center the card */
+.card {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 400px;
+}
+
+/* Style the card header */
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Style the form input fields */
+.form-group input {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Style the form labels */
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Style the login button */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Style the login button when hovering over it */
+.btn-primary:hover {
+  background-color: #0062cc;
+  cursor: pointer;
+}
+
+   /* Footer Styles */
+
+   .footer {
+  background-color: #6d90a5;
+  color: #fff;
+  padding: 70px 0;
+  font-size: 14px;
+}
+
+.footer_top {
+  border-bottom: 1px solid #444444;
+  padding-bottom: 50px;
+}
+
+.footer_widget {
+  margin-bottom: 40px;
+}
+
+.footer_logo img {
+  max-width: 200px;
+}
+
+.socail_links ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.socail_links ul li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.socail_links ul li a {
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.socail_links ul li a:hover {
+  transform: translateY(-5px);
+}
+
+.newsletter_form input[type="email"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.newsletter_form button[type="submit"] {
+  background-color: #fff;
+  color: #828ea2;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.newsletter_form button[type="submit"]:hover {
+  transform: translateY(-5px);
+  background-color: #f2f2f2;
+  color: #45576a;
+}
+
+.copy-right_text {
+  padding: 20px 0;
+}
+
+.copy-right_text p {
+  margin: 0;
+}
+
+.copy_right {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.copy_right a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.copy_right a:hover {
+  color: #f2f2f2;
+}
+
+</style>
+{% load static %}
+<footer class="footer" id="footer">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-md-6 col-lg-3">
+                    <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="footer_logo">
+                            <a href="#">
+                            <img src="{% static 'img/myblacklogo.png' %}" alt="">
+                            </a>
+                        </div>
+                        
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com" target="_blank">
+                                        Facebook
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/eelshop1/" target="_blank">
+                                        Instagram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com" target="_blank">
+                                        Twitter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.gmail.com" target="_blank">
+                                        Gmail
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Thank you for visiting, we wish you a happy shopping ;)
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+{% endblock %}

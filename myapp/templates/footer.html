@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <title>Document</title>
+  <style>
+    /* Footer Styles */
+
+.footer {
+  background-color: #2d5b73;
+  color: #fff;
+  padding: 70px 0;
+  font-size: 14px;
+}
+
+.footer_top {
+  border-bottom: 1px solid #444444;
+  padding-bottom: 50px;
+}
+
+.footer_widget {
+  margin-bottom: 40px;
+}
+
+.footer_logo img {
+  max-width: 200px;
+}
+
+.socail_links ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.socail_links ul li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.socail_links ul li a {
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.socail_links ul li a:hover {
+  transform: translateY(-5px);
+}
+
+.newsletter_form input[type="email"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.newsletter_form button[type="submit"] {
+  background-color: #fff;
+  color: #828ea2;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.newsletter_form button[type="submit"]:hover {
+  transform: translateY(-5px);
+  background-color: #f2f2f2;
+  color: #45576a;
+}
+
+.copy-right_text {
+  padding: 20px 0;
+}
+
+.copy-right_text p {
+  margin: 0;
+}
+
+.copy_right {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.copy_right a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.copy_right a:hover {
+  color: #f2f2f2;
+}
+
+</style>
+</head>
+<body>
+  <footer class="footer" id="footer">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-md-6 col-lg-3">
+                    <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="footer_logo">
+                            <a href="#">
+                            <img src="{% static 'img/myblacklogo.png' %}" alt="">
+                            </a>
+                        </div>
+                        
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com" target="_blank">
+                                      <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/eelshop1/" target="_blank">
+                                      <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com" target="_blank">
+                                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.gmail.com" target="_blank">
+                                      <i class="fa fa-glide" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-6 col-lg-4">
+                    <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
+                        <h3 class="footer_title">
+                            من نحن
+                        </h3>
+                        
+                        <p class="newsletter_text">بوتيك إلكتروني يضم كولكشن راقي وحصري من أفخم الماركات العالمية بأسعار مميزة وخدمة توصيل متوفرة لجميع أنحاء المملكة</p>
+                    </div>
+                    <p>
+                      gmail.com <br>
+                      +966597858322 <br>
+                      follow us in:
+                     
+                 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Thank you for visiting, we wish you a happy shopping ;)
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+{% load static %}
+
+
+
